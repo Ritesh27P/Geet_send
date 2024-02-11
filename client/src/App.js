@@ -6,6 +6,7 @@ import { app } from "./config/firebase.config";
 import { getAuth } from "firebase/auth"
 
 import { AnimatePresence } from "framer-motion"
+import {validateUser} from "./api"
 
 
 function App() {
@@ -22,7 +23,10 @@ function App() {
       // console.log(userCred)
       if (userCred) {
         userCred.getIdToken().then((token) => {
-          console.log(token);
+          // console.log(token);
+          validateUser(token).then((data) => {
+            console.log(data)
+          })
         })
       } else {
         setAuth(false);

@@ -2,9 +2,9 @@ import React from 'react'
 
 import { Logo } from "../assets/img/index"
 import { NavLink } from 'react-router-dom'
-import {isActiveStyles, isNotActiveStyles} from "../utils/styles"
+import { isActiveStyles, isNotActiveStyles } from "../utils/styles"
 
-import {FaCrown} from "react-icons/fa"
+import { FaCrown } from "react-icons/fa"
 
 
 

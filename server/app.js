@@ -5,7 +5,7 @@ require("dotenv/config")
 const port = 4000;
 const {default : mongoose} = require("mongoose");
 
-// app.use(cors({origin : true}));
+app.use(cors({origin : true}));
 
 app.get("/", (req, res) => {
     return res.json("Server app.js");
