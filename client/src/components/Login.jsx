@@ -1,7 +1,7 @@
 import React from "react";
 import {FcGoogle} from "react-icons/fc"
 import { app } from "../config/firebase.config";
-import {GoogleAuthProvider, getAuth} from "firebase/auth"
+import {GoogleAuthProvider, getAuth, signInWithPopup} from "firebase/auth"
 import { useNavigate } from "react-router";
 
 
@@ -13,7 +13,7 @@ function Login () {
     const navigate = useNavigate();
 
     const loginWithGoogle = async () => {
-        console.log("Hiii")
+        await signInWithPopup(firebaseAuth, provider).then((userCred) => {console.log(userCred)})
 
     }
 
