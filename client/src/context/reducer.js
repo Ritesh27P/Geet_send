@@ -9,7 +9,7 @@ const reducer = (state, action) => {
         case actionType.SET_USER:
             return {
                 ...state,
-                user : action.useruser,
+                user : action.payload.user,
             }
         default : return state;
     }

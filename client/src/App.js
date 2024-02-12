@@ -7,6 +7,8 @@ import { getAuth } from "firebase/auth"
 
 import { AnimatePresence } from "framer-motion"
 import {validateUser} from "./api"
+import { useDispatch } from "react-redux";
+import { addUser } from "./redux/createUserSlice";
 // import { useStateValue } from "./context/StateProvider";import { actionType } from "./context/reducer";
 
 function App() {
@@ -18,7 +20,7 @@ function App() {
 
 
   const [auth, setAuth] = useState(false || window.localStorage.getItem("auth") === "true")
-
+  const dispatch = useDispatch()
   useEffect(() => {
     firebaseAuth.onAuthStateChanged((userCred) => {
       // console.log(userCred)
@@ -26,11 +28,12 @@ function App() {
         userCred.getIdToken().then((token) => {
           // console.log(token);
           validateUser(token).then((data) => {
-            console.log(data)
+            console.log("Data fetched")
             // dispatch({
             //   type: actionType.SET_USER,
             //   user : data
             // })
+            dispatch(addUser(data))
 
           })
         })
